@@ -3,10 +3,12 @@ defmodule Brainn.Repo.Migrations.CreateRepoTags do
 
   def change do
     create table(:repo_tags) do
-      add :tag_id, references(:tags)
-      add :repo_id, references(:starred_repos)
+      add :tags_id, references(:tags)
+      add :starred_repos_id, references(:starred_repos)
+
+      timestamps()
     end
 
-    create unique_index(:repo_tags, [:tag_id, :repo_id])
+    create unique_index(:repo_tags, [:tags_id, :starred_repos_id])
   end
 end

@@ -11,6 +11,5 @@ defmodule Brainn.Repo.Migrations.CreateStarredRepos do
 
       timestamps()
     end
-
   end
 end
