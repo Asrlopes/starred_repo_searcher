@@ -7,6 +7,8 @@ defmodule BrainnWeb.Router do
 
   scope "/api", BrainnWeb do
     pipe_through :api
+
+    get "/starred-repos/:user", RepositoriesController, :index
   end
 
   # Enables LiveDashboard only for development
