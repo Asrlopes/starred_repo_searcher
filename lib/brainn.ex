@@ -1,9 +1,5 @@
 defmodule Brainn do
-  @moduledoc """
-  Brainn keeps the contexts that define your domain
-  and business logic.
+  alias Brainn.Repositories
 
-  Contexts are also responsible for managing your data, regardless
-  if it comes from the database, an external API or others.
-  """
+  defdelegate fetch_starred_repositories(params), to: Repositories.Get, as: :call
 end
