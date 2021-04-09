@@ -19,7 +19,6 @@ defmodule Brainn.StarredRepos do
     %__MODULE__{}
     |> cast(params, [:id, :name, :description, :http_url, :language])
     |> validate_required([:id, :name])
-    |> unique_constraint(:id)
     |> Repo.insert()
   end
 end
