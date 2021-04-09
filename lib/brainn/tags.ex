@@ -9,9 +9,15 @@ defmodule Brainn.Tags do
     timestamps()
   end
 
-  def changeset(params) do
+  def changeset(tag \\ %__MODULE__{}, attrs) do
+    tag
+    |> cast(attrs, [:name])
+    |> validate_required([:name])
+  end
+
+  def update_changeset(attrs) do
     %__MODULE__{}
-    |> cast(params, [:name])
+    |> cast(attrs, [:name])
     |> validate_required([:name])
   end
 end
