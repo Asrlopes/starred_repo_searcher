@@ -5,12 +5,15 @@ defmodule Brainn.Repositories.Get do
   alias Brainn.StarredRepos
 
   def call(username) do
-    username
-    |> Client.get_starred_repos_by_username()
-    |> Build.build()
+    Repo.delete_all(StarredRepos)
+
+    starred_repos = Client.get_starred_repos_by_username(username)
+
+    Build.build(starred_repos)
     |> store_to_database()
 
-    retrieve_data_from_db()
+    starred_repos
+    # retrieve_data_from_db()
   end
 
   defp store_to_database({:ok, parsed_repos}) do
@@ -20,11 +23,11 @@ defmodule Brainn.Repositories.Get do
 
   defp store_to_database({:error, _reason}), do: :error
 
-  defp retrieve_data_from_db() do
-    data =
-      Repo.all(StarredRepos)
-      |> Repo.preload([:tags])
+  # defp retrieve_data_from_db() do
+  #   data =
+  #     Repo.all(StarredRepos)
+  #     |> Repo.preload([:tags])
 
-    {:ok, data}
-  end
+  #   {:ok, data}
+  # end
 end
