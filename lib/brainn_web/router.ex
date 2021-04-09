@@ -9,6 +9,10 @@ defmodule BrainnWeb.Router do
     pipe_through :api
 
     get "/starred-repos/:user", RepositoriesController, :index
+
+    get "/tags", TagsController, :index
+    post "/tags", TagsController, :create
+    put "/tags/:id", TagsController, :update
   end
 
   # Enables LiveDashboard only for development
