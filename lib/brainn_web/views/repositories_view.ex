@@ -7,14 +7,22 @@ defmodule BrainnWeb.RepositoriesView do
     %{data: render_many(repositories, RepositoriesView, "repositories.json")}
   end
 
-  def render("repositories.json", %{repositories: repositories}) do
+  def render("repositories.json", %{
+        repositories: %{
+          "id" => id,
+          "name" => name,
+          "description" => description,
+          "language" => language,
+          "html_url" => html_url
+        }
+      }) do
     %{
-      id: repositories.id,
-      name: repositories.name,
-      description: repositories.description,
-      language: repositories.language,
-      http_url: repositories.http_url,
-      tags: repositories.tags
+      id: id,
+      name: name,
+      description: description,
+      language: language,
+      http_url: html_url
+      # tags: repositories.tags
     }
   end
 end
