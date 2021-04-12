@@ -10,14 +10,15 @@ defmodule Brainn.Tags.Update do
   defp handle_update(%{"id" => id} = params) do
     with {:ok, %Tags{} = tag} <- get_tags!(id),
          {:ok, %Tags{} = tag} <- update_tag(tag, params) do
-          {:ok, tag}
+      {:ok, tag}
     end
   end
 
   def get_tags!(id) do
     {:ok, Repo.get!(Tags, id)}
   rescue
-    Ecto.NoResultsError -> {:error, :not_found}
+    Ecto.NoResultsError ->
+      {:error, "Resource not found"}
   end
 
   def update_tag(%Tags{} = tag, attrs) do
