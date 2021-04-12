@@ -5,4 +5,5 @@ defmodule Brainn do
 
   defdelegate create_tags(params), to: Tags.Create, as: :call
   defdelegate update_tags(params), to: Tags.Update, as: :call
+  defdelegate delete_tags(params), to: Tags.Delete, as: :call
 end

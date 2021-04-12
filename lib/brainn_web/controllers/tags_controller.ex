@@ -29,11 +29,23 @@ defmodule BrainnWeb.TagsController do
   defp handle_response({:err, _reaseon}, _conn), do: :error
 
   def update(conn, params) do
-    with {:ok, %Tags{} = tags} <- Brainn.update_tags(params) do
-      conn
-      |> put_status(:ok)
-      |> render("create.json", tag: tags)
-    end
+    Brainn.update_tags(params)
+    |> handle_update_response(conn)
   end
 
+  defp handle_update_response({:ok, %Tags{} = tags}, conn) do
+    conn
+    |> put_status(:ok)
+    |> render("create.json", tag: tags)
+  end
+
+  defp handle_update_response({:error, _reason} = error, _conn), do: error
+
+  def delete(conn, params) do
+    Brainn.delete_tags(params)
+    |> handle_delete_response(conn)
+  end
+
+  defp handle_delete_response({:ok, %Tags{}}, conn), do: send_resp(conn, :no_content, "")
+  defp handle_delete_response({:error, _reason} = error, _conn), do: error
 end
