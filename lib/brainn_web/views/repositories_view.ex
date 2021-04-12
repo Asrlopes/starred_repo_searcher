@@ -22,7 +22,6 @@ defmodule BrainnWeb.RepositoriesView do
       description: description,
       language: language,
       http_url: html_url
-      # tags: repositories.tags
     }
   end
 end
