@@ -3,9 +3,15 @@ defmodule BrainnWeb.RepositoriesController do
 
   action_fallback BrainnWeb.FallbackController
 
-  def index(conn, %{"user" => user}) do
+  def index(conn, %{"user" => _user} = user) do
     user
     |> Brainn.fetch_starred_repositories()
+    |> handle_response(conn)
+  end
+
+  def index(conn, %{"tags" => _tags} = tags) do
+    tags
+    |> Brainn.list_starred_repositories()
     |> handle_response(conn)
   end
 
@@ -20,5 +26,5 @@ defmodule BrainnWeb.RepositoriesController do
     |> render("index.json", repositories: repositories)
   end
 
-  defp handle_response({:err, _reaseon}, _conn), do: :error
+  defp handle_response({:error, _reaseon} = error, _conn), do: error
 end

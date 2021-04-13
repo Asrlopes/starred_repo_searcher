@@ -15,9 +15,9 @@ defmodule Brainn.StarredRepos do
     timestamps()
   end
 
-  def changeset(params) do
+  def changeset(attrs) do
     %__MODULE__{}
-    |> cast(params, [:id, :name, :description, :http_url, :language])
+    |> cast(attrs, [:id, :name, :description, :http_url, :language])
     |> validate_required([:id, :name])
     |> Repo.insert()
   end

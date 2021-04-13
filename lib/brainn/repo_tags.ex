@@ -13,9 +13,9 @@ defmodule Brainn.RepoTags do
   end
 
   @required_fields [:tags_id, :starred_repos_id]
-  def changeset(params \\ %{}) do
+  def changeset(attrs \\ %{}) do
     %__MODULE__{}
-    |> cast(params, @required_fields)
+    |> cast(attrs, @required_fields)
     |> validate_required(@required_fields)
     |> foreign_key_constraint(:tags_id)
     |> foreign_key_constraint(:starred_repos_id)
