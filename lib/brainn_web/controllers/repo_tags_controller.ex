@@ -18,4 +18,12 @@ defmodule BrainnWeb.RepoTagsController do
   end
 
   defp handle_response({:err, _reaseon}, _conn), do: :error
+
+  def delete(conn, params) do
+    Brainn.remove_tags_from_repository(params)
+    |> handle_delete_response(conn)
+  end
+
+  defp handle_delete_response({:ok, %RepoTags{}}, conn), do: send_resp(conn, :no_content, "")
+  defp handle_delete_response({:error, _reason} = error, _conn), do: error
 end

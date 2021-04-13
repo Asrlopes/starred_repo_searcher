@@ -9,4 +9,5 @@ defmodule Brainn do
   defdelegate delete_tags(params), to: Tags.Delete, as: :call
 
   defdelegate add_tags_to_repository(params), to: RepoTags.Create, as: :call
+  defdelegate remove_tags_from_repository(params), to: RepoTags.Delete, as: :call
 end
