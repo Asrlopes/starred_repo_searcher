@@ -5,10 +5,9 @@ defmodule Brainn.RepoTags do
   alias Brainn.StarredRepos
   alias Brainn.Tags
 
-  @primary_key {:id, :integer, []}
   schema "repo_tags" do
-    belongs_to(:starred_repos, StarredRepos, primary_key: true)
-    belongs_to(:tags, Tags, primary_key: true)
+    belongs_to(:starred_repos, StarredRepos)
+    belongs_to(:tags, Tags)
 
     timestamps()
   end

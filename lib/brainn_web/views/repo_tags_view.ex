@@ -3,6 +3,7 @@ defmodule BrainnWeb.RepoTagsView do
 
   def render("create.json", %{
         repository_tags: %{
+          id: id,
           tags_id: tags_id,
           starred_repos_id: starred_repos_id,
           inserted_at: inserted_at,
@@ -10,6 +11,7 @@ defmodule BrainnWeb.RepoTagsView do
         }
       }) do
     %{
+      id: id,
       starred_repos_id: starred_repos_id,
       tags_id: tags_id,
       inserted_at: inserted_at,

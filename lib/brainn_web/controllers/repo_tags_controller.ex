@@ -1,6 +1,5 @@
 defmodule BrainnWeb.RepoTagsController do
   use BrainnWeb, :controller
-  alias Brainn.Repo
   alias Brainn.RepoTags
 
   action_fallback BrainnWeb.FallbackController
@@ -11,9 +10,6 @@ defmodule BrainnWeb.RepoTagsController do
       |> put_status(:created)
       |> handle_response(repo_tags)
     end
-
-    RepoTags.changeset(params)
-    |> Repo.insert()
   end
 
   defp handle_response(conn, %RepoTags{} = repo_tags) do
