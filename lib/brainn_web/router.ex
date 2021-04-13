@@ -9,6 +9,7 @@ defmodule BrainnWeb.Router do
     pipe_through :api
 
     get "/starred-repos/:user", RepositoriesController, :index
+    get "/starred-repos", RepositoriesController, :index
 
     get "/tags", TagsController, :index
     post "/tags", TagsController, :create

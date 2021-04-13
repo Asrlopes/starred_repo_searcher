@@ -6,6 +6,7 @@ defmodule Brainn.Repositories.Get do
 
   def call(username) do
     Repo.delete_all(StarredRepos)
+    # Repo.delete_all()
 
     starred_repos = Client.get_starred_repos_by_username(username)
 
@@ -16,6 +17,10 @@ defmodule Brainn.Repositories.Get do
     # retrieve_data_from_db()
   end
 
+  def call() do
+    retrieve_data_from_db()
+  end
+
   defp store_to_database({:ok, parsed_repos}) do
     parsed_repos
     |> Enum.map(fn parsed_repo -> StarredRepos.changeset(parsed_repo) end)
@@ -23,11 +28,11 @@ defmodule Brainn.Repositories.Get do
 
   defp store_to_database({:error, _reason}), do: :error
 
-  # defp retrieve_data_from_db() do
-  #   data =
-  #     Repo.all(StarredRepos)
-  #     |> Repo.preload([:tags])
+  defp retrieve_data_from_db() do
+    data =
+      Repo.all(StarredRepos)
+      |> Repo.preload([:tags])
 
-  #   {:ok, data}
-  # end
+    {:ok, data}
+  end
 end

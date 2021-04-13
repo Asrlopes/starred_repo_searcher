@@ -9,6 +9,11 @@ defmodule BrainnWeb.RepositoriesController do
     |> handle_response(conn)
   end
 
+  def index(conn, _params) do
+    Brainn.list_starred_repositories()
+    |> handle_response(conn)
+  end
+
   defp handle_response({:ok, repositories}, conn) do
     conn
     |> put_status(:ok)
