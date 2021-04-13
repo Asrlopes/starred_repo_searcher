@@ -10,14 +10,20 @@ defmodule BrainnWeb.RepositoriesView do
   end
 
   def render("repositories.json", %{
-        repositories: %{} = repositories
+        repositories: %{
+          "id" => id,
+          "name" => name,
+          "description" => description,
+          "language" => language,
+          "html_url" => html_url
+        }
       }) do
     %{
-      id: repositories.id,
-      name: repositories.name,
-      description: repositories.description,
-      language: repositories.language,
-      http_url: repositories.http_url
+      id: id,
+      name: name,
+      description: description,
+      language: language,
+      http_url: html_url
     }
   end
 

@@ -15,6 +15,8 @@ defmodule BrainnWeb.Router do
     post "/tags", TagsController, :create
     put "/tags/:id", TagsController, :update
     delete "/tags/:id", TagsController, :delete
+
+    post "/repo-tags/:starred_repos_id", RepoTagsController, :create
   end
 
   # Enables LiveDashboard only for development

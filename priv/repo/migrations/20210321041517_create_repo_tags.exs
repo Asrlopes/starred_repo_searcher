@@ -3,8 +3,8 @@ defmodule Brainn.Repo.Migrations.CreateRepoTags do
 
   def change do
     create table(:repo_tags) do
-      add :tags_id, references(:tags)
-      add :starred_repos_id, references(:starred_repos)
+      add :tags_id, references(:tags, on_delete: :delete_all)
+      add :starred_repos_id, references(:starred_repos, on_delete: :delete_all)
 
       timestamps()
     end
