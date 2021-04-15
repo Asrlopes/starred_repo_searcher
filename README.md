@@ -28,7 +28,7 @@ I've challenged myself to make this programming exercise with an language that i
 
 First of all you need to clone this repository.
 
-then ou can open the project and search the file inside `config/dev.exs`, here you can set up your database connection.
+then you can open the project and search the file inside `config/dev.exs`, here you can set up your database connection.
 
 Here i'm using postgres as database, you need to have postgres in your machine or just use an docker image. Now you can follow the nexts steps.
 
