@@ -41,7 +41,7 @@ Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
 ## How to test
 
-Inside the root folder of the project you can see a file named `ìnsomnia-guide.json`, you can use him to see the endpointds avaibles for the api.
+Inside the root folder of the project you can see a file named `ìnsomnia-guide.json`, you can use that to see the endpointds avaibles for the api.
 
 In your bash you can use this command `mix test`to see if the tests are up and running properly, i also added the capability to see the coverage of our tests.
 You can use this command `mix coveralls`to see in your bash or if you want something more visual you can use `mix coveralls.html`, this command generate an html file inside the `cover` folder, then open this file in your browser.
