@@ -10,7 +10,7 @@
 
 <p align="center">
   <a href="https://www.linkedin.com/in/amor%C3%A9sio-de-souza-429ba314b/">
-    <img alt="Made by" src="https://img.shields.io/badge/Feito%20por-Amor%C3%A9sio%20de%20Souza-purple">
+    <img alt="Made by" src="https://img.shields.io/badge/%20by-Amor%C3%A9sio%20de%20Souza-purple">
   </a>
 </p>
 
