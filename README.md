@@ -5,7 +5,7 @@
 </p>
 
 <h2 align="center">
- Technical test Backend | Brainn
+ Technical test Backend
 </h2>
 
 <p align="center">
